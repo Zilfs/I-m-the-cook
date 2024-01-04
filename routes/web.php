@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
 });
 
-Route::middleware(['auth', 'isAdmin'])->group(function () {
+Route::middleware(['auth', 'isAdminOrWaiter'])->group(function () {
     Route::resource('/menu', MenuController::class);
 });
 
@@ -34,5 +34,5 @@ Route::middleware(['auth', 'isWaiter'])->group(function () {
     Route::resource('/customer', PelangganController::class);
     Route::resource('/pesanan', PesananController::class);
     Route::get('/create-pesanan/{id}', [PesananController::class, 'create'])->name('pesanan-for');
-    Route::post('/add-pesanan/{id}', [PesananController::class, 'store'])->name('add-pesanan');
+    Route::get('/add-pesanan/{id}', [PesananController::class, 'store'])->name('add-pesanan');
 });

@@ -34,5 +34,5 @@ Route::middleware(['auth', 'isWaiter'])->group(function () {
     Route::resource('/customer', PelangganController::class);
     Route::resource('/pesanan', PesananController::class);
     Route::get('/create-pesanan/{id}', [PesananController::class, 'create'])->name('pesanan-for');
-    Route::get('/add-pesanan/{id}', [PesananController::class, 'store'])->name('add-pesanan');
+    Route::post('/add-pesanan/{id}', [PesananController::class, 'store'])->name('add-pesanan');
 });

@@ -2,6 +2,9 @@
 
 @section('contents')
     <div class="row">
+        <div class="col-12 card p-4">
+            <a href="{{ route('pesanan.show', $id_pelanggan) }}" class="btn btn-primary">Lihat Pesanan</a>
+        </div>
         @foreach ($menu as $item)
             <div class="col-5 card p-4 m-2 d-flex flex-row align-items-center">
                 <div class="w-75">
@@ -9,11 +12,12 @@
                     Rp. {{ $item->harga }} ,-
                 </div>
                 <div class="w-25 justify-content-center">
-                    <a href="" data-bs-toggle="modal" data-bs-target="#addPesanan"><i
+                    <a href="" data-bs-toggle="modal" data-bs-target="#addPesanan{{ $item->id }}"><i
                             class="fa-solid text-primary fa-2xl fa-square-plus ms-5"></i></a>
                 </div>
             </div>
-            <div class="modal fade" id="addPesanan" tabindex="-1" aria-labelledby="addPesananLabel" aria-hidden="true">
+            <div class="modal fade" id="addPesanan{{ $item->id }}" tabindex="-1" aria-labelledby="addPesananLabel"
+                aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <form action="{{ route('add-pesanan', $id_pelanggan) }}" method="POST">

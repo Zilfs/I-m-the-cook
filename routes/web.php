@@ -35,4 +35,6 @@ Route::middleware(['auth', 'isWaiter'])->group(function () {
     Route::resource('/pesanan', PesananController::class);
     Route::get('/create-pesanan/{id}', [PesananController::class, 'create'])->name('pesanan-for');
     Route::post('/add-pesanan/{id}', [PesananController::class, 'store'])->name('add-pesanan');
+    Route::post('/edit-pesanan/{id}/{id_pengguna}', [PesananController::class, 'update'])->name('edit-pesanan');
+    Route::delete('/delete-pesanan/{id}/{id_pengguna}', [PesananController::class, 'destroy'])->name('delete-pesanan');
 });

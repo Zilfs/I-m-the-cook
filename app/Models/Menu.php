@@ -17,4 +17,9 @@ class Menu extends Model
     ];
 
     protected $hidden = [];
+
+    public function pesanan()
+    {
+        return $this->hasMany(Pesanan::class, 'id_menu', 'id');
+    }
 }

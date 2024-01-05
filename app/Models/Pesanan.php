@@ -19,4 +19,9 @@ class Pesanan extends Model
     ];
 
     protected $hidden = [];
+
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class, 'id_menu', 'id');
+    }
 }

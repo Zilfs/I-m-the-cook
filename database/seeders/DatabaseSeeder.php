@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'username' => 'Waiter',
-                'password' => bcrypt('manager123'),
+                'password' => bcrypt('waiter123'),
                 'role' => 'WAITER'
             ],
             [

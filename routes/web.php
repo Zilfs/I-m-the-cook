@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PesananController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,4 +38,9 @@ Route::middleware(['auth', 'isWaiter'])->group(function () {
     Route::post('/add-pesanan/{id}', [PesananController::class, 'store'])->name('add-pesanan');
     Route::post('/edit-pesanan/{id}/{id_pengguna}', [PesananController::class, 'update'])->name('edit-pesanan');
     Route::delete('/delete-pesanan/{id}/{id_pengguna}', [PesananController::class, 'destroy'])->name('delete-pesanan');
+});
+
+Route::middleware(['auth', 'isKasir'])->group(function () {
+    Route::resource('/transaksi', TransaksiController::class);
+    Route::post('/checkout/{id}', [TransaksiController::class, 'store'])->name('checkout');
 });

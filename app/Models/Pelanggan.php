@@ -15,7 +15,8 @@ class Pelanggan extends Model
         'nama_pelanggan',
         'jenis_kelamin',
         'no_hp',
-        'alamat'
+        'alamat',
+        'status'
     ];
 
     protected $hidden = [];

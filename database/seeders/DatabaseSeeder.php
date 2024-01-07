@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             [
                 'username' => 'Owner',
                 'password' => bcrypt('owner123'),
-                'role' => 'OWNER   '
+                'role' => 'OWNER'
             ]
         ];
 

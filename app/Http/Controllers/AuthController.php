@@ -23,6 +23,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
             if (Auth::user()) {
                 return redirect()->route('index');
+                // return dd(Auth::user()->role);
             }
         }
         return redirect()->route('login');

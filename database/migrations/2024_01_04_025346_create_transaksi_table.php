@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_menu');
             $table->bigInteger('id_pelanggan');
             $table->integer('total');
             $table->integer('bayar');

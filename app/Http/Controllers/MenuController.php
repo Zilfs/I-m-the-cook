@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MenuExport;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MenuController extends Controller
 {
@@ -82,5 +84,10 @@ class MenuController extends Controller
         $item->delete();
 
         return redirect()->route('menu.index');
+    }
+
+    public function export()
+    {
+        return Excel::download(new MenuExport, 'Data Menu.xlsx');
     }
 }

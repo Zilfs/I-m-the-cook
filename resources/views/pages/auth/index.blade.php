@@ -30,10 +30,12 @@
                                         </div>
                                         <div class="mb-3">
                                             <input type="password" class="form-control form-control-lg"
-                                                placeholder="Password" aria-label="Password" name="password">
+                                                placeholder="Password" aria-label="Password" name="password"
+                                                id="passwordField">
                                         </div>
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="showPw">
+                                            <input class="form-check-input" type="checkbox" id="showPw"
+                                                onclick="showPassword()">
                                             <label class="form-check-label" for="showPw">Show Password</label>
                                         </div>
                                         <div class="text-center">

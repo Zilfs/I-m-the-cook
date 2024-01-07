@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PesananExport;
 use App\Models\Menu;
 use App\Models\Pelanggan;
 use App\Models\Pesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PesananController extends Controller
 {
@@ -97,5 +99,10 @@ class PesananController extends Controller
         $item->delete();
 
         return redirect()->route('pesanan.show', $id_pelanggan);
+    }
+
+    public function export()
+    {
+        return Excel::download(new PesananExport, 'Data Pesanan.xlsx');
     }
 }

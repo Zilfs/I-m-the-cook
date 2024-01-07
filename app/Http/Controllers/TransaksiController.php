@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TransaksiExport;
 use App\Models\Pelanggan;
 use App\Models\Pesanan;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TransaksiController extends Controller
 {
@@ -94,5 +96,10 @@ class TransaksiController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function export()
+    {
+        return Excel::download(new TransaksiExport, 'Data Transaksi.xlsx');
     }
 }

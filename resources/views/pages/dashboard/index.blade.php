@@ -71,7 +71,7 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Money</p>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Income</p>
                                 <h5 class="font-weight-bolder">
                                     Rp. {{ $today_revenue }} ,-
                                 </h5>

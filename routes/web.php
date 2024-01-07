@@ -44,3 +44,9 @@ Route::middleware(['auth', 'isKasir'])->group(function () {
     Route::resource('/transaksi', TransaksiController::class);
     Route::post('/checkout/{id}', [TransaksiController::class, 'store'])->name('checkout');
 });
+
+Route::middleware(['auth'], ['isOwnerOrWaiterOrKasir'])->group(function () {
+    Route::get('/export-transaksi', [TransaksiController::class, 'export'])->name('export-transaksi');
+    Route::get('/export-pesanan', [PesananController::class, 'export'])->name('export-pesanan');
+    Route::get('/export-menu', [MenuController::class, 'export'])->name('export-menu');
+});

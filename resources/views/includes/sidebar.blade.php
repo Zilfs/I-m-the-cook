@@ -65,10 +65,8 @@
                 </li>
             @endif
 
-            <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
-            </li>
-            <li class="nav-item px-3">
+
+            <li class="nav-item px-3 mt-5">
                 <a class="nav-link btn btn-danger" href="{{ route('logout') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center text-white">

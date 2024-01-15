@@ -40,23 +40,25 @@
                                             {{ $no++ }}
                                         </td>
                                         <td class="">
-                                            <p class="text-sm font-weight-bold mb-0">{{ $item->menu->nama_menu }}</p>
+                                            <p class="text-sm font-weight-bold mb-0">
+                                                {{ $item->menu->nama_menu ?? '' }}</p>
                                         </td>
                                         <td class="">
-                                            <p class="text-sm font-weight-bold mb-0">Rp. {{ $item->menu->harga }} ,-</p>
+                                            <p class="text-sm font-weight-bold mb-0">Rp. {{ $item->menu->harga ?? '' }} ,-
+                                            </p>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="badge bg-gradient-success">{{ $item->jumlah }}
+                                            <span class="badge bg-gradient-success">{{ $item->jumlah ?? '' }}
                                             </span>
                                         </td>
 
                                         <td class="align-middle text-center">
                                             <p class="text-sm font-weight-bold mb-0">
-                                                {{ $item->menu->harga * $item->jumlah }}</p>
+                                                {{ $item->menu->harga ?? 0 * $item->jumlah }}</p>
                                         </td>
                                     </tr>
                                     @php
-                                        $total += $item->menu->harga * $item->jumlah;
+                                        $total += $item->menu->harga ?? 0 * $item->jumlah;
                                     @endphp
                                 @endforeach
 
@@ -76,7 +78,7 @@
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-lg btn-success btn-lg w-100 mt-4 mb-0">Submit</button>
-                            <a href="{{ route('menu.index') }}"
+                            <a href="{{ route('transaksi.index') }}"
                                 class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Back</a>
                         </div>
                     </form>

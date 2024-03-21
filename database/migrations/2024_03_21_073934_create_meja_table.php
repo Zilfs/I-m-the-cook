@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pelanggan', function (Blueprint $table) {
+        Schema::create('meja', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pelanggan');
-            $table->string('jenis_kelamin')->nullable();
-            $table->string('no_hp')->nullable();
-            $table->longText('alamat')->nullable();
-            $table->longText('status')->nullable();
+            $table->integer('no_meja');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pelanggan');
+        Schema::dropIfExists('meja');
     }
 };

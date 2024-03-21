@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\TransaksiExport;
+use App\Models\Meja;
 use App\Models\Pelanggan;
 use App\Models\Pesanan;
 use App\Models\Transaksi;
@@ -68,11 +69,10 @@ class TransaksiController extends Controller
     public function edit(string $id)
     {
         $data = Pesanan::with('menu')->where('id_pelanggan', $id)->get();
-        $id_pelanggan = $id;
 
         return view('pages.transaksi.checkout', [
             'data' => $data,
-            'id_pelanggan' => $id_pelanggan
+            'id_pelanggan' => $id
         ]);
     }
 
@@ -81,10 +81,17 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $id_meja = Pelanggan::findOrFail($id)->id_meja;
+        $meja = Meja::findOrFail($id_meja);
+
         Transaksi::create([
             'id_pelanggan' => $id,
             'total' => $request->total,
             'bayar' => $request->bayar
+        ]);
+
+        $meja->update([
+            'status' => 'TERSEDIA',
         ]);
 
         return redirect()->route('transaksi.index');

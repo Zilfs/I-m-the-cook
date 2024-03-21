@@ -60,10 +60,12 @@ class PesananController extends Controller
     {
         $data = Pesanan::where('id_pelanggan', $id)->get();
         $id_pelanggan = $id;
+        $pelanggan = Pelanggan::findOrFail($id);
 
         return view('pages.pesanan.show', [
             'data' => $data,
-            'id_pelanggan' => $id_pelanggan
+            'id_pelanggan' => $id_pelanggan,
+            'pelanggan' => $pelanggan,
         ]);
     }
 

@@ -18,9 +18,10 @@
                                         #
                                     </th>
                                     <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 w-50">
+                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 w-25">
                                         Nama</th>
-
+                                    <th class="text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2 w-25">
+                                        Status</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Aksi</th>
@@ -38,7 +39,11 @@
                                         <td class="">
                                             <p class="text-sm font-weight-bold mb-0">{{ $item->nama_pelanggan }}</p>
                                         </td>
-
+                                        <td class="align-middle text-center pt-4">
+                                            @if ($item->status == 'PAID')
+                                                <button disabled class="btn btn-sm btn-secondary">PAID</button>
+                                            @endif
+                                        </td>
                                         <td class="align-middle text-center pt-4">
                                             <a href="{{ route('pesanan.show', $item->id) }}"
                                                 class="btn btn-sm btn-primary">View</a>

@@ -15,6 +15,16 @@
                                 aria-label="Nama Customer" name="nama_pelanggan" required>
                         </div>
                         <div class="mb-3">
+                            <select class="form-select" aria-label="Default select example" name="no_meja">
+                                <option selected>No Meja</option>
+                                @forelse ($meja as $item)
+                                    <option value="{{ $item->id }}">{{ $item->no_meja }}</option>
+                                @empty
+                                    <option selected>Tidak ada meja tersedia</option>
+                                @endforelse
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <select class="form-select" aria-label="Default select example" name="jenis_kelamin">
                                 <option selected>Jenis Kelamin</option>
                                 <option value="LAKI-LAKI">LAKI-LAKI</option>

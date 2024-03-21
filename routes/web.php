@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MejaController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PesananController;
@@ -29,6 +30,10 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::middleware(['auth', 'isAdminOrWaiter'])->group(function () {
     Route::resource('/menu', MenuController::class);
+});
+
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::resource('/meja', MejaController::class);
 });
 
 Route::middleware(['auth', 'isWaiter'])->group(function () {

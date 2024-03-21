@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meja;
-use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 
-class PelangganController extends Controller
+class MejaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $data = Meja::all();
+
+        return view('pages.meja.index', [
+            'data' => $data,
+        ]);
     }
 
     /**
@@ -21,11 +24,7 @@ class PelangganController extends Controller
      */
     public function create()
     {
-        $meja = Meja::where('status', 'TERSEDIA')->get();
-
-        return view('pages.pelanggan.add', [
-            'meja' => $meja,
-        ]);
+        return view('pages.meja.add');
     }
 
     /**
@@ -33,23 +32,11 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
-        $meja = Meja::findOrFail($request->no_meja);
+        $data = $request->all();
 
-        Pelanggan::create([
-            'nama_pelanggan' => $request->nama_pelanggan,
-            'id_meja' => $request->no_meja,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'no_hp' => $request->no_hp,
-            'alamat' => $request->alamat
-        ]);
+        Meja::create($data);
 
-        $meja->update([
-            'status' => 'DIGUNAKAN',
-        ]);
-
-        $id_pelanggan = Pelanggan::latest()->first()->id;
-
-        return redirect()->route('pesanan-for', $id_pelanggan);
+        return redirect()->route('meja.index');
     }
 
     /**
@@ -65,7 +52,11 @@ class PelangganController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Meja::findOrFail($id);
+
+        return view('pages.meja.edit', [
+            'data' => $data,
+        ]);
     }
 
     /**
@@ -73,7 +64,12 @@ class PelangganController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+        $item = Meja::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('meja.index');
     }
 
     /**
@@ -81,6 +77,10 @@ class PelangganController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = Meja::findOrfail($id);
+
+        $item->delete();
+
+        return redirect()->route('meja.index');
     }
 }

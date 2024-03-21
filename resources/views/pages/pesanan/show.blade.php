@@ -7,7 +7,10 @@
                 <div class="card-header pb-0">
                     <h5>Menu Table</h5>
                 </div>
-                <a href="{{ route('pesanan-for', $id_pelanggan) }}" class="btn btn-success m-4">Add New Menu</a>
+                @if ($pelanggan->status != 'PAID')
+                    <a href="{{ route('pesanan-for', $id_pelanggan) }}" class="btn btn-success m-4">Add New Menu</a>
+                @endif
+
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-2">
@@ -23,9 +26,12 @@
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Jumlah</th>
-                                    <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Aksi</th>
+                                    @if ($pelanggan->status != 'PAID')
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Aksi</th>
+                                    @endif
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,13 +50,16 @@
                                             <span class="badge bg-gradient-success">{{ $item->jumlah }}
                                             </span>
                                         </td>
-                                        <td class="align-middle text-center pt-4">
-                                            <a href="" class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                                                data-bs-target="#editPesanan{{ $item->id }}">Edit</a>
-                                            <a href="" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteModal{{ $item->id }}">Delete</a>
+                                        @if ($pelanggan->status != 'PAID')
+                                            <td class="align-middle text-center pt-4">
+                                                <a href="" class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                                    data-bs-target="#editPesanan{{ $item->id }}">Edit</a>
+                                                <a href="" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal{{ $item->id }}">Delete</a>
 
-                                        </td>
+                                            </td>
+                                        @endif
+
                                     </tr>
                                     <div class="modal fade" id="deleteModal{{ $item->id }}" tabindex="-1"
                                         aria-labelledby="deleteModalLabel" aria-hidden="true">

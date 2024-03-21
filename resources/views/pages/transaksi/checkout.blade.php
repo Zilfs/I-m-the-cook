@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h5>Add Data Menu</h5>
+                    <h5>Data Pesanan</h5>
                 </div>
                 <div class="card-body px-4 py-4">
                     <div class="table-responsive p-0">

@@ -16,8 +16,14 @@ class Pelanggan extends Model
         'jenis_kelamin',
         'no_hp',
         'alamat',
-        'status'
+        'status',
+        'id_meja'
     ];
 
     protected $hidden = [];
+
+    public function meja()
+    {
+        return $this->belongsTo(Meja::class, 'id_meja', 'id');
+    }
 }

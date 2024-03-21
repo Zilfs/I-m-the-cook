@@ -5,9 +5,9 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h5>Menu Table</h5>
+                    <h5>Data Meja</h5>
                 </div>
-                <a href="{{ route('menu.create') }}" class="btn btn-success m-4">Add New Menu</a>
+                <a href="{{ route('meja.create') }}" class="btn btn-success m-4">Tambah Meja Baru</a>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-2">
@@ -19,10 +19,10 @@
                                     </th>
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 w-50">
-                                        Nama</th>
+                                        No Meja</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Harga</th>
+                                        Status</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Aksi</th>
@@ -38,21 +38,21 @@
                                             {{ $no++ }}
                                         </td>
                                         <td class="">
-                                            <p class="text-sm font-weight-bold mb-0">{{ $item->nama_menu }}</p>
+                                            <p class="text-sm font-weight-bold mb-0">{{ $item->no_meja }}</p>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="badge bg-gradient-success">Rp. {{ $item->harga }}
-                                                ,-</span>
+                                            <span class="badge bg-gradient-success">{{ $item->status }}
+                                            </span>
                                         </td>
                                         <td class="align-middle text-center pt-4">
-                                            <a href="{{ route('menu.edit', $item->id) }}"
+                                            <a href="{{ route('meja.edit', $item->id) }}"
                                                 class="btn btn-sm btn-warning">Edit</a>
                                             <a href="" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteModal{{ $item->id }}">Delete</a>
+                                                data-bs-target="#deleteModal">Delete</a>
 
                                         </td>
                                     </tr>
-                                    <div class="modal fade" id="deleteModal{{ $item->id }}" tabindex="-1"
+                                    <div class="modal fade" id="deleteModal" tabindex="-1"
                                         aria-labelledby="deleteModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
@@ -70,7 +70,7 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Close</button>
-                                                    <form action="{{ route('menu.destroy', $item->id) }}" method="POST">
+                                                    <form action="{{ route('meja.destroy', $item->id) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -81,7 +81,6 @@
                                         </div>
                                     </div>
                                 @endforeach
-
                             </tbody>
                         </table>
                     </div>

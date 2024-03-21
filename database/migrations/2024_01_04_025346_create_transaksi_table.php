@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_pelanggan');
+            $table->bigInteger('id_pelanggan')->unsigned();
             $table->integer('total');
             $table->integer('bayar');
             $table->timestamps();
+
+            $table->foreign('id_pelanggan')->references('id')->on('pelanggan');
         });
     }
 

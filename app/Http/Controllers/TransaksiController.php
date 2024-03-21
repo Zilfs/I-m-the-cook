@@ -52,6 +52,18 @@ class TransaksiController extends Controller
             'status' => 'PAID'
         ]);
 
+        if ($pelanggan->id_meja) {
+            $meja = Meja::findOrFail($pelanggan->id_meja);
+
+            $meja->update([
+                'status' => 'TERSEDIA',
+            ]);
+
+            $pelanggan->update([
+                'id_meja' => NULL,
+            ]);
+        }
+
         return redirect()->route('transaksi.index');
     }
 
@@ -81,20 +93,7 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $id_meja = Pelanggan::findOrFail($id)->id_meja;
-        $meja = Meja::findOrFail($id_meja);
-
-        Transaksi::create([
-            'id_pelanggan' => $id,
-            'total' => $request->total,
-            'bayar' => $request->bayar
-        ]);
-
-        $meja->update([
-            'status' => 'TERSEDIA',
-        ]);
-
-        return redirect()->route('transaksi.index');
+        //
     }
 
     /**

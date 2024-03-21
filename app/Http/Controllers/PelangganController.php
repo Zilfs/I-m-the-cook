@@ -33,7 +33,6 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
-        $meja = Meja::findOrFail($request->no_meja);
 
         Pelanggan::create([
             'nama_pelanggan' => $request->nama_pelanggan,
@@ -43,9 +42,12 @@ class PelangganController extends Controller
             'alamat' => $request->alamat
         ]);
 
-        $meja->update([
-            'status' => 'DIGUNAKAN',
-        ]);
+        if ($request->no_meja) {
+            $meja = Meja::findOrFail($request->no_meja);
+            $meja->update([
+                'status' => 'DIGUNAKAN',
+            ]);
+        }
 
         $id_pelanggan = Pelanggan::latest()->first()->id;
 

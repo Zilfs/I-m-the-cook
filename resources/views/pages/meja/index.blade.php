@@ -55,29 +55,52 @@
                                     <div class="modal fade" id="deleteModal" tabindex="-1"
                                         aria-labelledby="deleteModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <div class="d-flex justify-content-center align-items-center"
-                                                        style="height: 250px">
-                                                        <i class="fa-solid fa-exclamation fa-bounce fa-2xl h-75"
-                                                            style="color: #ea2e2e;"></i>
-                                                    </div>
+                                            @if ($item->status == 'TERSEDIA')
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <div class="d-flex justify-content-center align-items-center"
+                                                            style="height: 250px">
+                                                            <i class="fa-solid fa-exclamation fa-bounce fa-2xl h-75"
+                                                                style="color: #ea2e2e;"></i>
+                                                        </div>
 
-                                                    <div class="text-center">
-                                                        <h4>Are you sure want to delete this?</h4>
+                                                        <div class="text-center">
+                                                            <h4>Yakin ingin menghapus data ini?</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Ngga jadi</button>
+                                                        <form action="{{ route('meja.destroy', $item->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="btn btn-danger">Yakin</button>
+                                                        </form>
+
                                                     </div>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <form action="{{ route('meja.destroy', $item->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                                    </form>
+                                            @endif
+                                            @if ($item->status == 'DIGUNAKAN')
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <div class="d-flex justify-content-center align-items-center"
+                                                            style="height: 250px">
+                                                            <i class="fa-solid fa-exclamation fa-bounce fa-2xl h-75"
+                                                                style="color: #ea2e2e;"></i>
+                                                        </div>
 
+                                                        <div class="text-center">
+                                                            <h4>Gagal menghapus meja karena meja sedang digunakan, tunggu
+                                                                hingga meja selesai digunakan</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary"
+                                                            data-bs-dismiss="modal">Oke</button>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach

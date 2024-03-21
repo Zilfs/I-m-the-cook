@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h5>Edit Data Meja</h5>
+                    <h5>Ubah Data Meja</h5>
                 </div>
                 <div class="card-body px-4 py-4">
                     <form role="form" method="POST" action="{{ route('meja.update', $data->id) }}">
@@ -21,31 +21,55 @@
                         </div> --}}
                         <div class="text-center">
                             <a href="" class="btn btn-lg btn-success btn-lg w-100 mt-4 mb-0" data-bs-toggle="modal"
-                                data-bs-target="#updateModal">Update</a>
+                                data-bs-target="#updateModal">Perbarui</a>
                             <a href="{{ route('meja.index') }}"
-                                class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Back</a>
+                                class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Kembali</a>
                         </div>
                         <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <div class="d-flex justify-content-center align-items-center" style="height: 250px">
-                                            <i class="fa-solid fa-question fa-beat fa-2xl h-75" style="color: #ffae00;"></i>
-                                        </div>
+                                @if ($data->status == 'TERSEDIA')
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="d-flex justify-content-center align-items-center"
+                                                style="height: 250px">
+                                                <i class="fa-solid fa-question fa-beat fa-2xl h-75"
+                                                    style="color: #ffae00;"></i>
+                                            </div>
 
-                                        <div class="text-center">
-                                            <h4>Are you sure want to edit this?</h4>
+                                            <div class="text-center">
+                                                <h4>Yakin ingin memperbarui data ?</h4>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ngga
+                                                jadi</button>
+
+                                            <button type="submit" class="btn btn-warning">Yakin</button>
+
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
+                                @endif
+                                @if ($data->status == 'DIGUNAKAN')
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="d-flex justify-content-center align-items-center"
+                                                style="height: 250px">
+                                                <i class="fa-solid fa-exclamation fa-bounce fa-2xl h-75"
+                                                    style="color: #ea2e2e;"></i>
+                                            </div>
 
-                                        <button type="submit" class="btn btn-warning">Update</button>
-
+                                            <div class="text-center">
+                                                <h4>Gagal menghapus meja karena meja sedang digunakan, tunggu
+                                                    hingga meja selesai digunakan</h4>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary"
+                                                data-bs-dismiss="modal">Oke</button>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </div>
                         </div>
                     </form>

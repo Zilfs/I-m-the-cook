@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('no_hp')->nullable();
             $table->longText('alamat')->nullable();
             $table->longText('status')->nullable();
-            $table->bigInteger('id_meja')->unsigned();
+            $table->bigInteger('id_meja')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('id_meja')->references('id')->on('meja');

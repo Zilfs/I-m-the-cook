@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h5>Add Data Menu</h5>
+                    <h5>Tambah Data Menu</h5>
                 </div>
                 <div class="card-body px-4 py-4">
                     <form role="form" method="POST" action="{{ route('menu.store') }}">
@@ -19,9 +19,9 @@
                                 aria-label="Harga" name="harga" required>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-lg btn-success btn-lg w-100 mt-4 mb-0">Submit</button>
+                            <button type="submit" class="btn btn-lg btn-success btn-lg w-100 mt-4 mb-0">Tambah</button>
                             <a href="{{ route('menu.index') }}"
-                                class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Back</a>
+                                class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Kembali</a>
                         </div>
                     </form>
                 </div>

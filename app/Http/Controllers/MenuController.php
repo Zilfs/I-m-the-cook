@@ -39,7 +39,7 @@ class MenuController extends Controller
             'harga' => $request->harga
         ]);
 
-        return redirect()->route('menu.index');
+        return redirect()->route('menu.index')->with('insert-data-success', 'Data baru berhasil ditambahkan');
     }
 
     /**
@@ -72,7 +72,7 @@ class MenuController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('menu.index');
+        return redirect()->route('menu.index')->with('update-data-success', 'Data berhasil diperbarui');
     }
 
     /**
@@ -83,7 +83,7 @@ class MenuController extends Controller
         $item = Menu::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('menu.index');
+        return redirect()->route('menu.index')->with('delete-data-success', 'Data berhasil dihapus');
     }
 
     public function export()

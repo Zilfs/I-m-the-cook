@@ -5,9 +5,24 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h5>Menu Table</h5>
+                    <h5>Tabel Data Menu</h5>
                 </div>
-                <a href="{{ route('menu.create') }}" class="btn btn-success m-4">Add New Menu</a>
+                @if (session()->has('insert-data-success'))
+                    <div class="alert alert-success fw-bold text-white px-3 pt-3 m-4">
+                        <i class="fa fa-circle-check fa-lg"></i> {{ session()->get('insert-data-success') }}
+                    </div>
+                @endif
+                @if (session()->has('update-data-success'))
+                    <div class="alert alert-warning fw-bold text-white px-3 pt-3 m-4">
+                        <i class="fa fa-circle-check fa-lg"></i> {{ session()->get('update-data-success') }}
+                    </div>
+                @endif
+                @if (session()->has('delete-data-success'))
+                    <div class="alert alert-danger fw-bold text-white px-3 pt-3 m-4">
+                        <i class="fa fa-circle-check fa-lg"></i> {{ session()->get('delete-data-success') }}
+                    </div>
+                @endif
+                <a href="{{ route('menu.create') }}" class="btn btn-success m-4">Tambah Menu Baru</a>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-2">
@@ -46,9 +61,9 @@
                                         </td>
                                         <td class="align-middle text-center pt-4">
                                             <a href="{{ route('menu.edit', $item->id) }}"
-                                                class="btn btn-sm btn-warning">Edit</a>
+                                                class="btn btn-sm btn-warning">Ubah</a>
                                             <a href="" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteModal{{ $item->id }}">Delete</a>
+                                                data-bs-target="#deleteModal{{ $item->id }}">Hapus</a>
 
                                         </td>
                                     </tr>
@@ -64,16 +79,16 @@
                                                     </div>
 
                                                     <div class="text-center">
-                                                        <h4>Are you sure want to delete this?</h4>
+                                                        <h4>Yakin mau dihapus?</h4>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
+                                                        data-bs-dismiss="modal">Ngga jadi</button>
                                                     <form action="{{ route('menu.destroy', $item->id) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit" class="btn btn-danger">Yakin</button>
                                                     </form>
 
                                                 </div>

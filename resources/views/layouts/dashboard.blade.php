@@ -15,7 +15,7 @@
     <link href="/template/assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="/template/assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="/fontawesome/js/all.min.js" crossorigin="anonymous"></script>
     <link href="/template/assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="/template/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
@@ -101,7 +101,7 @@
     <script src="/template/assets/js/core/bootstrap.min.js"></script>
     <script src="/template/assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="/template/assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="/template/assets/js/plugins/chartjs.min.js"></script>
+    {{-- <script src="/template/assets/js/plugins/chartjs.min.js"></script>
     <script>
         var ctx1 = document.getElementById("chart-line").getContext("2d");
 
@@ -195,7 +195,7 @@
         }
     </script>
     <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script> --}}
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="/template/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
 </body>

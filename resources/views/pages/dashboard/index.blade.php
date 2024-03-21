@@ -2,13 +2,13 @@
 
 @section('contents')
     <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Your Revenue</p>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Pendapatan</p>
                                 <h5 class="font-weight-bolder">
                                     Rp. {{ $revenue }} ,-
                                 </h5>
@@ -23,55 +23,34 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Customers</p>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Pesanan Hari Ini</p>
                                 <h5 class="font-weight-bolder">
                                     {{ $customer }}
                                 </h5>
                             </div>
                         </div>
                         <div class="col-4 text-end">
-                            <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
-                                <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                            <div class="icon icon-shape bg-gradient-danger shadow-danger text-center pt-2 rounded-circle">
+                                <i class="fa fa-receipt fa-lg text-white opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-4 col-sm-6">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Customer</p>
-                                <h5 class="font-weight-bolder">
-                                    {{ $today_customer }}
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="col-4 text-end">
-                            <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
-                                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-sm-6">
-            <div class="card">
-                <div class="card-body p-3">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="numbers">
-                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Income</p>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Pendapatan Hari Ini</p>
                                 <h5 class="font-weight-bolder">
                                     Rp. {{ $today_revenue }} ,-
                                 </h5>
@@ -94,7 +73,7 @@
                 <div class="card ">
                     <div class="card-header pb-0 p-3">
                         <div class="d-flex justify-content-between">
-                            <h6 class="mb-2">Today's Transactions</h6>
+                            <h6 class="mb-2">Transaksi Hari Ini</h6>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -145,7 +124,7 @@
             <div class="col-lg-5">
                 <div class="card">
                     <div class="card-header pb-0 p-3">
-                        <h6 class="mb-0">Available Menus</h6>
+                        <h6 class="mb-0">Menu Tersedia</h6>
                     </div>
                     <div class="card-body p-3">
                         <ul class="list-group">
@@ -175,7 +154,7 @@
                 <div class="card ">
                     <div class="card-header pb-0 p-3">
                         <div class="d-flex justify-content-between">
-                            <h6 class="mb-2">Today's Orders</h6>
+                            <h6 class="mb-2">Pesanan Hari Ini</h6>
                         </div>
                     </div>
                     <div class="table-responsive p-0">
@@ -222,7 +201,7 @@
             <div class="col-lg-5">
                 <div class="card">
                     <div class="card-header pb-0 p-3">
-                        <h6 class="mb-0">Available Menus</h6>
+                        <h6 class="mb-0">Menu Tersedia</h6>
                     </div>
                     <div class="card-body p-3">
                         <ul class="list-group">
@@ -252,7 +231,7 @@
                 <div class="card ">
                     <div class="card-header pb-0 p-3">
                         <div class="d-flex justify-content-between">
-                            <h6 class="mb-2">Today's Transactions</h6>
+                            <h6 class="mb-2">Transaksi Hari Ini</h6>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -307,7 +286,7 @@
                 <div class="card ">
                     <div class="card-header pb-0 p-3">
                         <div class="d-flex justify-content-between">
-                            <h6 class="mb-2">Your Employees</h6>
+                            <h6 class="mb-2">Karyawan Anda</h6>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -343,7 +322,7 @@
                                         </td>
                                         <td class="align-middle text-sm">
                                             <div class="col text-center">
-                                                <p class="text-xs font-weight-bold mb-0">Get Hired :</p>
+                                                <p class="text-xs font-weight-bold mb-0">Bergabung pada :</p>
                                                 <h6 class="text-sm mb-0">{{ $item->created_at->toDateString() }}</h6>
                                             </div>
                                         </td>

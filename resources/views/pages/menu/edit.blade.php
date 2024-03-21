@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h5>Edit Data Menu</h5>
+                    <h5>Ubah Data Menu</h5>
                 </div>
                 <div class="card-body px-4 py-4">
                     <form role="form" method="POST" action="{{ route('menu.update', $data->id) }}">
@@ -21,9 +21,9 @@
                         </div>
                         <div class="text-center">
                             <a href="" class="btn btn-lg btn-success btn-lg w-100 mt-4 mb-0" data-bs-toggle="modal"
-                                data-bs-target="#updateModal">Update</a>
+                                data-bs-target="#updateModal">Perbarui</a>
                             <a href="{{ route('menu.index') }}"
-                                class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Back</a>
+                                class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Kembali</a>
                         </div>
                         <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel"
                             aria-hidden="true">
@@ -35,14 +35,14 @@
                                         </div>
 
                                         <div class="text-center">
-                                            <h4>Are you sure want to edit this?</h4>
+                                            <h4>Yakin ingin memperbarui data ?</h4>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ngga
+                                            jadi</button>
 
-                                        <button type="submit" class="btn btn-warning">Update</button>
+                                        <button type="submit" class="btn btn-warning">Yakin</button>
 
                                     </div>
                                 </div>

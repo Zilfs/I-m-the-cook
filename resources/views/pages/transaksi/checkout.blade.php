@@ -7,6 +7,11 @@
                 <div class="card-header pb-0">
                     <h5>Data Pesanan</h5>
                 </div>
+                @if (session()->has('failed-checkout'))
+                    <div class="alert alert-danger fw-bold text-white px-3 pt-3 m-4">
+                        <i class="fa fa-circle-exclamation fa-lg"></i> {{ session()->get('failed-checkout') }}
+                    </div>
+                @endif
                 <div class="card-body px-4 py-4">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-2">
@@ -74,8 +79,11 @@
                         </div>
                         <div class="my-3">
                             <input type="text" class="form-control form-control-lg" placeholder="Bayar"
-                                aria-label="Bayar" name="bayar" required>
+                                aria-label="Bayar" name="bayar" id="bayar" required>
                         </div>
+                        <label for="kembalian">Kembalian</label>
+                        <input type="text" class="form-control form-control-lg" aria-label="Kembalian" name="kembalian"
+                            value="0" id="kembalian" readonly>
                         <div class="text-center">
                             <button type="submit" class="btn btn-lg btn-success btn-lg w-100 mt-4 mb-0">Submit</button>
                             <a href="{{ route('transaksi.index') }}"
@@ -87,3 +95,18 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script>
+        document.getElementById('bayar').addEventListener('input', function() {
+            var bayar = parseFloat(document.getElementById('bayar').value);
+            var total = parseFloat('{{ $total }}');
+            var kembalian = bayar - total;
+            if (!isNaN(kembalian) && kembalian >= 0) {
+                document.getElementById('kembalian').value = kembalian;
+            } else {
+                document.getElementById('kembalian').value = 'Uang yang dibayarkan kurang';
+            }
+        });
+    </script>
+@endpush

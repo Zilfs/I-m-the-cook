@@ -29,10 +29,7 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        $data = Transaksi::all();
-        return view('pages.transaksi.history', [
-            'data' => $data
-        ]);
+        //
     }
 
     /**
@@ -40,31 +37,44 @@ class TransaksiController extends Controller
      */
     public function store(Request $request, string $id)
     {
-        Transaksi::create([
-            'id_pelanggan' => $id,
-            'total' => $request->total,
-            'bayar' => $request->bayar
-        ]);
+        if ($request->bayar < $request->total) {
+            return redirect()->route('transaksi.edit', $id)->with('failed-checkout', 'Uang yang dibayarkan kurang');
+        } else {
 
-        $pelanggan = Pelanggan::findOrFail($id);
-
-        $pelanggan->update([
-            'status' => 'PAID'
-        ]);
-
-        if ($pelanggan->id_meja) {
-            $meja = Meja::findOrFail($pelanggan->id_meja);
-
-            $meja->update([
-                'status' => 'TERSEDIA',
+            Transaksi::create([
+                'id_pelanggan' => $id,
+                'total' => $request->total,
+                'bayar' => $request->bayar
             ]);
+
+            $pelanggan = Pelanggan::findOrFail($id);
 
             $pelanggan->update([
-                'id_meja' => NULL,
+                'status' => 'PAID'
             ]);
-        }
 
-        return redirect()->route('transaksi.index');
+            if ($pelanggan->id_meja) {
+                $meja = Meja::findOrFail($pelanggan->id_meja);
+
+                $meja->update([
+                    'status' => 'TERSEDIA',
+                ]);
+
+                $pelanggan->update([
+                    'id_meja' => NULL,
+                ]);
+            }
+
+            return redirect()->route('transaksi.index');
+        }
+    }
+
+    public function history()
+    {
+        $data = Transaksi::all();
+        return view('pages.transaksi.history', [
+            'data' => $data
+        ]);
     }
 
     /**

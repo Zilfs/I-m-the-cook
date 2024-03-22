@@ -97,6 +97,7 @@
         </div>
     </div>
     <!--   Core JS Files   -->
+    @stack('script')
     <script src="/template/assets/js/core/popper.min.js"></script>
     <script src="/template/assets/js/core/bootstrap.min.js"></script>
     <script src="/template/assets/js/plugins/perfect-scrollbar.min.js"></script>

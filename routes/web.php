@@ -30,6 +30,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::middleware(['auth', 'isAdminOrWaiter'])->group(function () {
     Route::resource('/menu', MenuController::class);
+    Route::get('/deleted-menu', [MenuController::class, 'deleted'])->name('deleted-menu');
+    Route::get('/restore-menu/{id}', [MenuController::class, 'restore'])->name('restore-menu');
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {

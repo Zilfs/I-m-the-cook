@@ -48,11 +48,11 @@
                                             <a href="{{ route('meja.edit', $item->id) }}"
                                                 class="btn btn-sm btn-warning">Edit</a>
                                             <a href="" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteModal">Delete</a>
+                                                data-bs-target="#deleteModal{{ $item->id }}">Delete</a>
 
                                         </td>
                                     </tr>
-                                    <div class="modal fade" id="deleteModal" tabindex="-1"
+                                    <div class="modal fade" id="deleteModal{{ $item->id }}" tabindex="-1"
                                         aria-labelledby="deleteModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             @if ($item->status == 'TERSEDIA')

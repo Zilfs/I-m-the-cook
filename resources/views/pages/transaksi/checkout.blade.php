@@ -54,11 +54,11 @@
 
                                         <td class="align-middle text-center">
                                             <p class="text-sm font-weight-bold mb-0">
-                                                {{ $item->menu->harga ?? 0 * $item->jumlah }}</p>
+                                                {{ $item->menu->harga * $item->jumlah }}</p>
                                         </td>
                                     </tr>
                                     @php
-                                        $total += $item->menu->harga ?? 0 * $item->jumlah;
+                                        $total += $item->menu->harga * $item->jumlah;
                                     @endphp
                                 @endforeach
 

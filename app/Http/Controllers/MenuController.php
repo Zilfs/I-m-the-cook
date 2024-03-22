@@ -86,6 +86,22 @@ class MenuController extends Controller
         return redirect()->route('menu.index')->with('delete-data-success', 'Data berhasil dihapus');
     }
 
+    public function deleted()
+    {
+        $data = Menu::onlyTrashed()->get();
+        return view('pages.menu.deleted', [
+            'data' => $data,
+        ]);
+    }
+
+    public function restore(string $id)
+    {
+        $item = Menu::withTrashed()->findOrFail($id);
+        $item->restore();
+
+        return redirect()->route('menu.index')->with('restore-data-success', 'Data berhasil dipulihkan');
+    }
+
     public function export()
     {
         return Excel::download(new MenuExport, 'Data Menu.xlsx');

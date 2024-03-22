@@ -27,8 +27,7 @@
                         <i class="fa fa-circle-check fa-lg"></i> {{ session()->get('restore-data-success') }}
                     </div>
                 @endif
-                <a href="{{ route('menu.create') }}" class="btn btn-success mx-4 mt-4">Tambah Menu Baru</a>
-                <a href="{{ route('deleted-menu') }}" class="btn btn-primary mx-4">Data Menu Yang Terhapus</a>
+                <a href="{{ route('menu.index') }}" class="btn btn-primary m-4">Kembali</a>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-2">
@@ -66,15 +65,13 @@
                                                 ,-</span>
                                         </td>
                                         <td class="align-middle text-center pt-4">
-                                            <a href="{{ route('menu.edit', $item->id) }}"
-                                                class="btn btn-sm btn-warning">Ubah</a>
                                             <a href="" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteModal{{ $item->id }}">Hapus</a>
+                                                data-bs-target="#restoreModal{{ $item->id }}">Pulihkan</a>
 
                                         </td>
                                     </tr>
-                                    <div class="modal fade" id="deleteModal{{ $item->id }}" tabindex="-1"
-                                        aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="restoreModal{{ $item->id }}" tabindex="-1"
+                                        aria-labelledby="restoreModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-body">
@@ -85,17 +82,15 @@
                                                     </div>
 
                                                     <div class="text-center">
-                                                        <h4>Yakin mau dihapus?</h4>
+                                                        <h4>Yakin ingin memulihkan data ?</h4>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Ngga jadi</button>
-                                                    <form action="{{ route('menu.destroy', $item->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="submit" class="btn btn-danger">Yakin</button>
-                                                    </form>
+
+                                                    <a href="{{ route('restore-menu', $item->id) }}"
+                                                        class="btn btn-danger">Yakin</a>
 
                                                 </div>
                                             </div>

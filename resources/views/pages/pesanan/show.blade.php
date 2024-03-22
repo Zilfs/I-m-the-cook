@@ -50,13 +50,21 @@
                                             <span class="badge bg-gradient-success">{{ $item->jumlah }}
                                             </span>
                                         </td>
-                                        @if ($pelanggan->status != 'PAID')
-                                            <td class="align-middle text-center pt-4">
-                                                <a href="" class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                                                    data-bs-target="#editPesanan{{ $item->id }}">Edit</a>
-                                                <a href="" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#deleteModal{{ $item->id }}">Delete</a>
+                                        @if ($item->menu->deleted_at == null)
+                                            @if ($pelanggan->status != 'PAID')
+                                                <td class="align-middle text-center pt-4">
+                                                    <a href="" class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                                        data-bs-target="#editPesanan{{ $item->id }}">Edit</a>
+                                                    <a href="" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                                        data-bs-target="#deleteModal{{ $item->id }}">Delete</a>
 
+                                                </td>
+                                            @endif
+                                        @endif
+                                        @if ($item->menu->deleted_at != null)
+                                            <td class="align-middle text-center pt-4">
+                                                <p class="text-danger text-sm">Tidak bisa melakukan aksi, karena data asli
+                                                    dihapus. <br>Pulihkan data agar dapat melakukan aksi</p>
                                             </td>
                                         @endif
 

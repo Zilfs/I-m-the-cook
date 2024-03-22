@@ -15,11 +15,11 @@ class DashboardController extends Controller
     {
         $revenue = Transaksi::all()->sum('total');
         $customer = Pelanggan::all()->count();
-        $today_revenue = Transaksi::where('created_at', Carbon::today())->get()->sum('total');
-        $today_customer = Pelanggan::where('created_at', Carbon::today())->get()->count();
-        $today_transaksi = Transaksi::where('created_at', Carbon::today())->get();
+        $today_revenue = Transaksi::whereDay('created_at', Carbon::today())->get()->sum('total');
+        $today_customer = Pelanggan::whereDay('created_at', Carbon::today())->get()->count();
+        $today_transaksi = Transaksi::whereDay('created_at', Carbon::today())->get();
         $menu = Menu::all();
-        $pesanan = Pelanggan::where('created_at', Carbon::today())->get();
+        $pesanan = Pelanggan::whereDay('created_at', Carbon::today())->get();
         $users = User::all();
 
         return view('pages.dashboard.index', [

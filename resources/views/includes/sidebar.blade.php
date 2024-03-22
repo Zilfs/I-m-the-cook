@@ -37,7 +37,7 @@
                     <a class="nav-link " href="{{ route('menu.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                            <i class="fa fa-book text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Menu</span>
                     </a>
@@ -46,7 +46,7 @@
                     <a class="nav-link" href="{{ route('customer.create') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                            <i class="fa fa-file-pen text-primary text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Buat Pesanan</span>
                     </a>
@@ -55,7 +55,7 @@
                     <a class="nav-link" href="{{ route('pesanan.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                            <i class="fa fa-list text-primary text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Pesanan</span>
                     </a>
@@ -64,7 +64,7 @@
                     <a class="nav-link" href="{{ route('export-pesanan') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                            <i class="fa fa-download text-warning text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Generate Pesanan Report</span>
                     </a>
@@ -73,7 +73,7 @@
                     <a class="nav-link" href="{{ route('export-menu') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                            <i class="fa fa-download text-warning text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Generate Menu Report</span>
                     </a>
@@ -94,7 +94,7 @@
                     <a class="nav-link " href="{{ route('export-transaksi') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+                            <i class="fa fa-download text-warning text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Generate Transaksi Report</span>
                     </a>
@@ -106,7 +106,7 @@
                     <a class="nav-link" href="{{ route('export-pesanan') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                            <i class="fa fa-download text-warning text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Generate Pesanan Report</span>
                     </a>
@@ -115,7 +115,7 @@
                     <a class="nav-link" href="{{ route('export-menu') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                            <i class="fa fa-download text-warning text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Generate Menu Report</span>
                     </a>
@@ -124,7 +124,7 @@
                     <a class="nav-link " href="{{ route('export-transaksi') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                            <i class="fa fa-download text-warning text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Generate Transaksi Report</span>
                     </a>

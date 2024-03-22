@@ -26,7 +26,7 @@ class AuthController extends Controller
                 // return dd(Auth::user()->role);
             }
         }
-        return redirect()->route('login');
+        return redirect()->route('login')->with('failed-login', 'Gagal login, username atau password salah !');
     }
 
     public function logout(Request $request)

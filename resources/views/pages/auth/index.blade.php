@@ -19,7 +19,13 @@
 
                                     </div>
                                     <h4 class="font-weight-bolder">Sign In</h4>
-                                    <p class="mb-0">Enter your credentials to access our dashboard</p>
+                                    <p class="mb-0">Masukkan kredensial anda untuk mengakses dashboard kami</p>
+                                    @if (session()->has('failed-login'))
+                                        <div class="alert alert-danger text-sm text-white px-3 pt-3 my-2">
+                                            <i class="fa fa-circle-exclamation"></i>
+                                            {{ session()->get('failed-login') }}
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="card-body">
                                     <form role="form" action="{{ route('authenticate') }}" method="POST">
@@ -55,8 +61,8 @@
                                 <span class="mask bg-black opacity-6"></span>
                                 <h2 class="mt-5 text-white font-weight-bolder position-relative">"Welcome aboard fellows!"
                                 </h2>
-                                <p class="text-white position-relative">As you log in, you gain access to the heart of our
-                                    culinary operations.</p>
+                                <p class="text-white position-relative">Saat Anda masuk, Anda akan mendapatkan akses ke
+                                    jantung pusat kuliner kami.</p>
                             </div>
                         </div>
                     </div>

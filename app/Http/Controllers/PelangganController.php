@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Meja;
 use App\Models\Pelanggan;
+use App\Models\Pesanan;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class PelangganController extends Controller
@@ -83,6 +85,26 @@ class PelangganController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pesanan = Pesanan::where('id_pelanggan', $id)->get();
+
+        if ($pesanan) {
+            foreach ($pesanan as $item) {
+                $item->delete();
+            }
+        }
+
+        $transaksi = Transaksi::where('id_pelanggan', $id)->first();
+        if ($transaksi) {
+            $transaksi->delete();
+        }
+
+        $pelanggan = Pelanggan::findOrFail($id);
+        $meja = Meja::findOrFail($pelanggan->id_meja);
+        $meja->update([
+            'status' => 'TERSEDIA',
+        ]);
+        $pelanggan->delete();
+
+        return redirect()->route('pesanan.index')->with('delete-data-success', 'Data berhasil di hapus');
     }
 }

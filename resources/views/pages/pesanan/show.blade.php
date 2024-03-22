@@ -5,10 +5,10 @@
         <div class="col-12">
             <div class="card py-4">
                 <div class="card-header pb-0">
-                    <h5>Menu Table</h5>
+                    <h5>Data Pesanan {{ $pelanggan->nama_pelanggan }}</h5>
                 </div>
                 @if ($pelanggan->status != 'PAID')
-                    <a href="{{ route('pesanan-for', $id_pelanggan) }}" class="btn btn-success m-4">Add New Menu</a>
+                    <a href="{{ route('pesanan-for', $id_pelanggan) }}" class="btn btn-success m-4">Tambah Pesanan</a>
                 @endif
 
                 <div class="card-body px-0 pt-0 pb-2">

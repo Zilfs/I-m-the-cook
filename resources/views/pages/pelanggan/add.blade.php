@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h5>Add Customer</h5>
+                    <h5>Masukkan data pemesanan</h5>
                 </div>
                 <div class="card-body px-4 py-4">
                     <form role="form" method="POST" action="{{ route('customer.store') }}">

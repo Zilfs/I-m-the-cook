@@ -28,7 +28,7 @@
                                     <div class="d-flex">
                                         <label for="jumlah" class="">Qty.</label>
                                     </div>
-                                    <input type="number" class="form-control" name="jumlah">
+                                    <input type="number" class="form-control" name="jumlah" min="1">
                                     <input type="text" value="{{ $item->id }}" class="form-control" name="id_menu"
                                         hidden>
                                 </div>

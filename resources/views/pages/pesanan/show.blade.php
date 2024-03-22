@@ -10,7 +10,7 @@
                 @if ($pelanggan->status != 'PAID')
                     <a href="{{ route('pesanan-for', $id_pelanggan) }}" class="btn btn-success m-4">Tambah Pesanan</a>
                 @endif
-
+                <a href="{{ route('pesanan.index') }}" class="btn btn-primary m-4">Kembali</a>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-2">

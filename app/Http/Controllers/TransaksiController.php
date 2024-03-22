@@ -65,7 +65,9 @@ class TransaksiController extends Controller
                 ]);
             }
 
-            return redirect()->route('transaksi.index');
+            $id_transaksi = Transaksi::latest()->first()->id;
+
+            return redirect()->route('transaksi.show', $id_transaksi)->with('success-checkout', 'Berhasil melakukan pembayaran');
         }
     }
 
@@ -82,7 +84,14 @@ class TransaksiController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $transaksi = Transaksi::findOrFail($id);
+        $data = Pesanan::with('menu')->where('id_pelanggan', $transaksi->id_pelanggan)->get();
+
+        return view('pages.transaksi.show', [
+            'data' => $data,
+            'transaksi' => $transaksi,
+            'id_pelanggan' => $id,
+        ]);
     }
 
     /**

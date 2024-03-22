@@ -50,6 +50,7 @@ Route::middleware(['auth', 'isWaiter'])->group(function () {
 Route::middleware(['auth', 'isKasir'])->group(function () {
     Route::resource('/transaksi', TransaksiController::class);
     Route::post('/checkout/{id}', [TransaksiController::class, 'store'])->name('checkout');
+    Route::get('/transaksi-history', [TransaksiController::class, 'history'])->name('transaksi-history');
 });
 
 Route::middleware(['auth'], ['isOwnerOrWaiterOrKasir'])->group(function () {

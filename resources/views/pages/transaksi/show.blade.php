@@ -90,7 +90,8 @@
                                 id="kembalian" readonly>
                         </div>
                         <div class="text-center">
-                            <a href="" class="btn btn-lg btn-success btn-lg w-100 mt-4 mb-0"><i
+                            <a href="{{ route('receipt', $transaksi->id) }}"
+                                class="btn btn-lg btn-success btn-lg w-100 mt-4 mb-0"><i
                                     class="fa fa-receipt me-2"></i>Cetak Struk</a>
                             <a href="{{ route('transaksi.index') }}"
                                 class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Back</a>

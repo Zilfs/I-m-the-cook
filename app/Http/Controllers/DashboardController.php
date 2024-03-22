@@ -21,6 +21,7 @@ class DashboardController extends Controller
         $menu = Menu::all();
         $pesanan = Pelanggan::whereDay('created_at', Carbon::today())->get();
         $users = User::all();
+        $transactions = Transaksi::whereDay('created_at', Carbon::today())->get();
 
         return view('pages.dashboard.index', [
             'revenue' => $revenue,
@@ -30,7 +31,8 @@ class DashboardController extends Controller
             'today_revenue' => $today_revenue,
             'today_customer' => $today_customer,
             'today_transaksi' => $today_transaksi,
-            'users' => $users
+            'users' => $users,
+            'transactions' => $transactions,
         ]);
     }
 }

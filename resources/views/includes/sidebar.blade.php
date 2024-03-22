@@ -60,7 +60,7 @@
                         <span class="nav-link-text ms-1">Pesanan</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('export-pesanan') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -76,6 +76,15 @@
                             <i class="fa fa-download text-warning text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Generate Menu Report</span>
+                    </a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('export-transaksi') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa fa-download text-warning text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Generate Transaksi Report</span>
                     </a>
                 </li>
             @endif
@@ -111,7 +120,7 @@
             @endif
 
             @if (Auth::user()->role == 'OWNER')
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('export-pesanan') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -128,7 +137,7 @@
                         </div>
                         <span class="nav-link-text ms-1">Generate Menu Report</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('export-transaksi') }}">
                         <div

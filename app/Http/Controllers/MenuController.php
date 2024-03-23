@@ -14,7 +14,13 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $data = Menu::all();
+        $data = Menu::query();
+        $search_request = request()->input('search', '');
+
+        if ($search_request) {
+            $data = $data->where('nama_menu', 'like', '%' . $search_request . '%');
+        }
+        $data = $data->get();
 
         return view('pages.menu.index', [
             'data' => $data

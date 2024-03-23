@@ -4,8 +4,20 @@
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
-                <div class="card-header pb-0">
-                    <h5>Tabel Data Menu</h5>
+                <div class="card-header pb-0 container align-items-center">
+                    <div class="row">
+                        <div class="col col-12 col-md-6">
+                            <h5 class="">Tabel Data Menu</h5>
+                        </div>
+                        <div class="col col-12 col-md-6">
+                            <form action="{{ route('menu.index') }}" method="get" class="justify-content-end d-flex">
+                                <div class="me-2">
+                                    <input type="text" class="form-control" placeholder="Cari menu.." name="search">
+                                </div>
+                                <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 @if (session()->has('insert-data-success'))
                     <div class="alert alert-success fw-bold text-white px-3 pt-3 m-4">
